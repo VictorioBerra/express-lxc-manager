@@ -11,15 +11,12 @@ I created the application as a self-motivated project to keep up my NodeJS skill
 - No auth yet, its just a sample app. However, generating a JWT and exposing it at the console on runtime for the user to pass as a query string param would be trivial to add.
 
 
-## Running the server
+## Running
 
-1) Open `server.js` and start the app by clicking on the "Run" button in the top menu.
+1) clone
+2) npm-install
+3) npm run
 
-2) Alternatively you can launch the app from the Terminal:
-
-    $ node server.js
-
-Once the server is running, open the project in the shape of 'https://projectname-username.c9.io/'. As you enter your name, watch the Users list (on the left) update. Once you press Enter or Send, the message is shared with all connected clients.
 
 ## TODO
 - Authentication
