@@ -1,0 +1,69 @@
+{% extends 'shared/layout.njk' %}
+
+{% block content %}
+
+<form class="form-horizontal" action="?" method="post">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Create Container</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Name</label>  
+  <div class="col-md-4">
+  <input id="name" name="name" type="text" placeholder="ubuntu" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Template</label>
+  <div class="col-md-4">
+    <select id="template" name="template" class="form-control">
+      <option value="alpine">alpine</option>
+      <option value="altlinux">altlinux</option>
+      <option value="archlinux">archlinux</option>
+      <option value="busybox">busybox</option>
+      <option value="centos">centos</option>
+      <option value="cirros">cirros</option>
+      <option value="debian">debian</option>
+      <option value="download">download</option>
+      <option value="fedora">fedora</option>
+      <option value="gentoo">gentoo</option>
+      <option value="openmandriva">openmandriva</option>
+      <option value="opensuse">opensuse</option>
+      <option value="oracle">oracle</option>
+      <option value="plamo">plamo</option>
+      <option value="slackware">slackware</option>
+      <option value="sparclinux">sparclinux</option>
+      <option value="sshd">sshd</option>
+      <option value="ubuntu-cloud">ubuntu-cloud</option>
+      <option value="ubuntu">ubuntu</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Template Arguments</label>  
+  <div class="col-md-4">
+  <input id="arguments" name="arguments" type="text" placeholder="" class="form-control input-md">
+  <span class="help-block">Example for the download template: --dist ubuntu --release xenial --arch amd64</span>
+  <a href="http://images.linuxcontainers.org/">Download template variants</a>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">Create container</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+{% endblock %}

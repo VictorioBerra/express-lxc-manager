@@ -3,9 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var nunjucks = require('nunjucks');
-
-// Set up routes
-var routes = require('./routes/index');
+var bodyParser = require('body-parser');
 
 var app = express();
 
@@ -26,10 +24,18 @@ nunjucks.configure('views', {
 // Logger
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
+// Static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+// Routes
+app.use('/', require('./routes/index'));
+app.use('/create', require('./routes/create'));
+app.use('/destroy', require('./routes/destroy'));
 
 // 404 catcher
 app.use(function(req, res, next) {

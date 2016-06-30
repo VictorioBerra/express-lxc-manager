@@ -1,6 +1,56 @@
 {% extends 'shared/layout.njk' %}
 
 {% block content %}
-  <h1>{{ title }}</h1>
-  <p>Welcome to {{ title }}</p>
+
+  {% if containercount %}
+	<table class="table table-condensed">
+	  <thead>
+	  	<tr>
+		  	<th>Name</th>
+		  	<th>State</th>
+		  	<th>Auto Start</th>
+		  	<th>Groups</th>
+		  	<th>ipv4</th>
+		  	<th>ipv6</th>
+		  	<th>Actions</th>
+	  	</tr>
+	  </thead>
+	  <tbody>
+	  {% for name, container in containers %}
+		<tr>
+		  	<td>{{ container.name }}</td>
+		  	<td>{{ container.state }}</td>
+		  	<td>{{ container.autostart }}</td>
+		  	<td>{{ container.groups }}</td>
+		  	<td>{{ container.ipv4 }}</td>
+		  	<td>{{ container.ipv6 }}</td>
+		  	<td>
+			  	<!-- Single button -->
+				<div class="btn-group">
+				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Actions <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu">
+				  	{% if container.state == "STOPPED" %}
+				    	<li><a href="#">Start</a></li>
+				    {% elif container.state == "FROZEN" %}
+				    	<li><a href="#">Unfreeze</a></li>
+			    	{% elif container.state == "STARTED" %}
+						<li><a href="#">Stop</a></li>
+					{% endif %}				
+					{% if container.state != "FROZEN" %}
+						<li><a href="/freeze/{{ container.name }}">Freeze</a></li>						
+					{% endif %}				
+					<li class="text-danger"><a href="/destroy/{{ container.name }}">Destroy</a></li>
+				  </ul>
+				</div>
+		  	</td>
+	  	</tr> 
+		{% endfor %}
+	  </tbody>  
+	</table>
+	{% else %}
+	<h2>You have no LXC containers yet. <a href="/create">Click here</a> to create one.</h2>
+	{% endif %}
+
 {% endblock %}
