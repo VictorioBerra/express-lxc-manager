@@ -21,7 +21,7 @@ I created the application as a self-motivated project to keep up my NodeJS skill
 
 
 ## Screenshots
-![Home](http://i.imgur.com/p8Hwj1Q.png)
+![Home](http://i.imgur.com/X40H0lz.jpg)
 ![Create](http://i.imgur.com/v9g6EKT.png)
 ![Attach](http://i.imgur.com/3FbwiyJ.png)
 ![Destroy](http://i.imgur.com/osepMkm.png)
