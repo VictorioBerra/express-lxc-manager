@@ -1,0 +1,36 @@
+{% extends 'shared/layout.njk' %}
+
+{% block content %}
+
+<form class="form-horizontal" action="?" method="post">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Attach</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="command">Command</label>  
+  <div class="col-md-4">
+  <input id="command" name="command" type="text" placeholder="ls -la" class="form-control input-md" required="">
+  <span class="help-block">Enter a command to run.</span>  
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">Attach</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+{% if output %}
+<h2>Results</h2>
+<pre>{{ output }}</pre>
+{% endif %}
+
+{% endblock %}

@@ -35,7 +35,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/create', require('./routes/create'));
+app.use('/attach', require('./routes/attach'));
 app.use('/destroy', require('./routes/destroy'));
+app.use('/start', require('./routes/start'));
+app.use('/stop', require('./routes/stop'));
+app.use('/freeze', require('./routes/freeze'));
+app.use('/unfreeze', require('./routes/unfreeze'));
 
 // 404 catcher
 app.use(function(req, res, next) {

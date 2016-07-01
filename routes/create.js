@@ -36,13 +36,40 @@ router.post('/', function(req, res) {
         });
 
     }).then(function(data) {
-
         res.redirect('/');
-
     });
 
+});
 
+
+router.post('/preset', function(req, res) {
+	
+    var template = "download -- " + req.body.presets;
+	var name = req.body.name;
+
+    return new Promise(function(resolve, reject) {
+        let data = '';
+
+        lxc.create(name, template, null, function onData(str) {
+            data += str;
+        }, function onComplete(exitCode, errors) {
+
+            if (exitCode !== null) {
+                reject({
+                    status: exitCode,
+                    stack: errors
+                });
+            } else {
+                resolve(data);
+            }
+
+        });
+
+    }).then(function(data) {
+        res.redirect('/');
+    });
 
 });
+
 
 module.exports = router;

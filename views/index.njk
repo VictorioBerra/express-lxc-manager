@@ -19,7 +19,15 @@
 	  {% for name, container in containers %}
 		<tr>
 		  	<td>{{ container.name }}</td>
-		  	<td>{{ container.state }}</td>
+		  	<td>		  	
+			  	{% if container.state == "STOPPED" %}
+			  		{{ container.state }}			    	
+			    {% elif container.state == "FROZEN" %}
+			    	<span class="text-primary">{{ container.state }}</span>
+		    	{% elif container.state == "RUNNING" %}
+					<span class="text-success">{{ container.state }}</span>
+				{% endif %}
+		  	</td>
 		  	<td>{{ container.autostart }}</td>
 		  	<td>{{ container.groups }}</td>
 		  	<td>{{ container.ipv4 }}</td>
@@ -32,13 +40,14 @@
 				  </button>
 				  <ul class="dropdown-menu">
 				  	{% if container.state == "STOPPED" %}
-				    	<li><a href="#">Start</a></li>
+				    	<li><a href="/start/{{ container.name }}">Start</a></li>
 				    {% elif container.state == "FROZEN" %}
-				    	<li><a href="#">Unfreeze</a></li>
-			    	{% elif container.state == "STARTED" %}
-						<li><a href="#">Stop</a></li>
+				    	<li><a href="/unfreeze/{{ container.name }}">Unfreeze</a></li>
+			    	{% elif container.state == "RUNNING" %}
+						<li><a href="/attach/{{ container.name }}">Attach</a></li>
+						<li><a href="/stop/{{ container.name }}">Stop</a></li>
 					{% endif %}				
-					{% if container.state != "FROZEN" %}
+					{% if container.state != "FROZEN" and container.state != "STOPPED" %}
 						<li><a href="/freeze/{{ container.name }}">Freeze</a></li>						
 					{% endif %}				
 					<li class="text-danger"><a href="/destroy/{{ container.name }}">Destroy</a></li>

@@ -14,16 +14,22 @@ I created the application as a self-motivated project to keep up my NodeJS skill
 ## Running
 
 1) clone
+
 2) npm-install
+
 3) npm run
+
+
+## Screenshots
+![Home](http://i.imgur.com/p8Hwj1Q.png)
+![Create](http://i.imgur.com/v9g6EKT.png)
+![Attach](http://i.imgur.com/3FbwiyJ.png)
+![Destroy](http://i.imgur.com/osepMkm.png)
 
 
 ## TODO
 - Authentication
 - Form validation
 - Confirmations (one flash?)
-
-- Starting/Stopping
-- Freezing/Unfreezing
 - Snapshots
 - ip addresses?

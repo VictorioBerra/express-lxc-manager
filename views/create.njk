@@ -12,7 +12,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Name</label>  
   <div class="col-md-4">
-  <input id="name" name="name" type="text" placeholder="ubuntu" class="form-control input-md" required="">
+  <input id="name" name="name" type="text" placeholder="u1" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -66,4 +66,42 @@
 </fieldset>
 </form>
 
+<form class="form-horizontal" action="/create/preset" method="post">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Preset Download Templates</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Name</label>  
+  <div class="col-md-4">
+  <input id="name" name="name" type="text" placeholder="u1" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="presets">Presets</label>
+  <div class="col-md-4">
+    <select id="presets" name="presets" class="form-control">
+      <option value="--dist ubuntu --release xenial --arch amd64">ubuntu xenial amd64</option>
+      <option value="--dist centos --release 7 --arch amd64">centos 7 amd64</option>
+      <option value="--dist alpine --release edge --arch amd64">alpine edge amd64</option>
+      <option value="--dist fedora --release 24 --arch amd64">fedora 24 amd64</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="create"></label>
+  <div class="col-md-4">
+    <button id="create" name="create" class="btn btn-primary">Create container</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
 {% endblock %}
